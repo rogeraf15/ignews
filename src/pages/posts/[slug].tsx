@@ -43,7 +43,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, params }) =>
   const session = await getSession({ req });
 
   // se caso o usuario nao ter inscrição paga ele sera reridicionado para home
-  if(!session.activeSubscription){
+  if(!session?.activeSubscription){
     return {
       redirect: {
         destination: '/',
