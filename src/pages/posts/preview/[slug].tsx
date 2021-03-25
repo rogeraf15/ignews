@@ -56,9 +56,13 @@ export default function PostPreview({ post }: PostPreviewProps){
   )
 }
 
+// para paginas que tem parametro dinamico [slug], para colocar, alguma pagina especifica pronta
 export const getStaticPaths = () => {
   return {
+    //colocar quais paginas serao geradas estaticamente
     paths: [],
+    //false -> se caso a pagina não foi criada estaticamente(primeira vez)
+    //blocking -> para nao carregar todos os caminhos
     fallback: 'blocking',
   }
 }
@@ -84,7 +88,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   return({ 
     props: { 
       post, 
-    }
+    },
+    revalidate: 60 * 30, //30 minutes
   })
 
 }
