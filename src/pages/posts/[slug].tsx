@@ -41,6 +41,18 @@ export default function Post({ post }: PostProps){
 export const getServerSideProps: GetServerSideProps = async ({ req, params }) => {
   //para saber se o usuario esta logado
   const session = await getSession({ req });
+
+  // se caso o usuario nao ter inscrição paga ele sera reridicionado para home
+  if(!session.activeSubscription){
+    return {
+      redirect: {
+        destination: '/',
+        // permanent => que o usuario pode algum dia se inscrever
+        permanent: false,
+      }
+    };
+  }
+
   const { slug } = params;
 
   const prismic = getPrismicClient(req);
