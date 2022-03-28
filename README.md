@@ -68,7 +68,7 @@ $ yarn dev
 ## :computer: Technologies
 
 - [NextJS](https://nextjs.org/)
-- [PrimiscCMS](https://prismic.io/)
+- [PrismicCMS](https://prismic.io/)
 - [Typescript](https://www.typescriptlang.org/)
 - [Axios](https://axios-http.com/)
 - [FaunaDB](https://fauna.com/)
